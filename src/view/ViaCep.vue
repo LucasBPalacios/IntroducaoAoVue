@@ -1,16 +1,16 @@
 <template>
     <div>
-        <h1>Consultar CEP</h1>
-        <hr>
+        <h1>Consult CEP</h1>
         <form action="#" onsubmit="event.preventDefault()">
-            <label for="cep">Digite o cep: </label>
-            <input type="text" id="cep" v-model="cep">
-            <input type="submit" value="Consultar" @click="getCep">
+            <div class="form-floating mb-3">
+                <input id="cep" v-model="cep" type="text" class="form-control" placeholder="Enter the CEP">
+            </div>
+            <input type="button" class="btn btn-primary" value="Search" @click="getCep">
         </form>
         <div>
-            <p>Rua: {{ place.street }} </p>
-            <p>Bairro: {{ place.neighborhood }}</p>
-            <p>Cidade: {{ place.city }}/{{ place.state }}</p>
+            <h5>Street:</h5><p>{{ place.street }} </p>
+            <h5>Neighborhood:</h5><p> {{ place.neighborhood }}</p>
+            <h5>City:</h5><p>{{ place.city }}/{{ place.state }}</p>
         </div>
     </div>
 </template>
@@ -36,15 +36,14 @@ const getCep = () => {
         .then((response) => {
             console.log(response);
             place.street = response.data.logradouro,
-            place.neighborhood = response.data.bairro,
-            place.city = response.data.localidade,
-            place.state = response.data.uf
+                place.neighborhood = response.data.bairro,
+                place.city = response.data.localidade,
+                place.state = response.data.uf
         })
         .catch((error) => {
-            console.log('Eita deu erro!', error);
+            console.log('Something went wrong!', error);
         })
 }
 
 </script>
-
-<style lang="scss" scoped></style>
+<style scoped></style>

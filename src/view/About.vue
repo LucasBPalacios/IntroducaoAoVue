@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1>Sobre o app</h1>
-        <p>Desenvolvido por Lucas Palácios</p>
+        <h1>About the app</h1>
+        <p>Developed by Lucas Palácios :D</p>
     </div>
 </template>
 
@@ -9,4 +9,4 @@
 
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
